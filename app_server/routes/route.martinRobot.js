@@ -73,7 +73,6 @@ var x = 0, y = 0, orientation = 0, width = 0, height = 0, scents = [];
 
 // function to receive user entered robot instructions
 function parseInput(input) {
-	console.log("parse input")
 
 	let chunk = input;
 
@@ -100,7 +99,7 @@ function parseInput(input) {
 			// split robot position by space - example 1 1 E
 			params = line.split(' ');
 
-			console.log("parseInt(params[0]) ", parseInt(params[0]), " parseInt(params[1]) ", parseInt(params[1]),)
+			// console.log("parseInt(params[0]) ", parseInt(params[0]), " parseInt(params[1]) ", parseInt(params[1]),)
 
 			// call robot function to initialize the robot
 			Robot(parseInt(params[0]), parseInt(params[1]), params[2].charAt(0));
@@ -110,14 +109,14 @@ function parseInput(input) {
 			// to process robot commands
 			if (processCommands(line)) {
 				// print if robot is not lost
-				console.log(this.x, this.y, 'NESW'.charAt(this.orientation) + '\n')
+				// console.log(this.x, this.y, 'NESW'.charAt(this.orientation) + '\n')
 				let data = this.x + ' ' + this.y + ' ' + 'NESW'.charAt(this.orientation) + '\n'
 				result = result + data;
 
 			}
 			else {
 				// print if robot is lost
-				console.log(this.x, this.y, 'NESW'.charAt(this.orientation) + ' LOST\n')
+				// console.log(this.x, this.y, 'NESW'.charAt(this.orientation) + ' LOST\n')
 				let data = this.x + ' ' + this.y + ' ' + 'NESW'.charAt(this.orientation) + ' LOST\n'
 				result = result + data;
 
@@ -126,7 +125,7 @@ function parseInput(input) {
 		}
 	}
 
-	console.log("result: ", result)
+	// console.log("result: ", result)
     return result;
 	// document.getElementById("resultDisplay").value = result;
 
@@ -143,18 +142,18 @@ function Grid(inputWidth, inputHeight) {
 	this.width = inputWidth;
 	this.height = inputHeight;
 	this.scents = [];
-	console.log("width ", this.width, " height ", this.height)
+	// console.log("width ", this.width, " height ", this.height)
 }
 
 // function to add scent - if the robot is lost
 function addScent(x, y) {
-    console.log("addScent")
+    // console.log("addScent")
 	this.scents.push((y * this.width) + x);
 };
 
 // function to check this next point is scented or not
 function checkIsScented(x, y) {
-	console.log("y ", y, " this.width ", this.width, " x ", x)
+	// console.log("y ", y, " this.width ", this.width, " x ", x)
 	return (
 		this.scents.indexOf((y * this.width) + x)
 		>= 0
@@ -225,9 +224,9 @@ function moveForward() {
 
 
 	if (isInbound(this.x + velocityX, this.y + velocityY)) {
-        console.log("!checkIsScented(this.x, this.y) ",!checkIsScented(this.x, this.y))
+        // console.log("!checkIsScented(this.x, this.y) ",!checkIsScented(this.x, this.y))
 		if (!checkIsScented(this.x, this.y)) {
-            console.log("checkIsScented")
+            // console.log("checkIsScented")
 			addScent(this.x, this.y);
 			return false;
 			// returns 'false' to indicate that the robot is lost
