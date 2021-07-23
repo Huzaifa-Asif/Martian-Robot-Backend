@@ -4,7 +4,7 @@ Solution of "Martian Robots" Problem - Backend
 ----------------
 This project is the backend for Martian Robot problem, it has two routes 
 
-- /martin-robot/run - (POST Request) with one variable input in the body of post request. 
+- /martian-robot/run - (POST Request) with one variable input in the body of post request. 
 It process the input and run the robot and the give final output and also save the input and output in database.
 - /martian-robot/get_all - (GET Request) it contains a list of all the input and processed output of the application.
 

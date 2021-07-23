@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
     message: "Welcome to Martian Robot Backend"
   })
 });
-app.use('/martin-robot', routeMartinRobot);
+app.use('/martian-robot', routeMartinRobot);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
