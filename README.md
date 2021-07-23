@@ -17,6 +17,7 @@ npm test
 ```
 **Run the Project**
 ```
+npm install
 npm start
 ```
 
