@@ -5,11 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
 global.__basedir = __dirname;
-
 var cors = require('cors')
-
 var app = express();
 app.use(cors())
+
+// routes
+var routeMartinRobot = require('./app_server/routes/route.martinRobot.js');
 
 // Set up mongoose connection
 let dev_db_url = 'mongodb+srv://usquare:square8580@usquare.h61cw.mongodb.net/USquare-Solutions?retryWrites=true&w=majority';
@@ -36,7 +37,7 @@ app.get('/', (req, res) => {
     message: "Welcome to Martian Robot Backend"
   })
 });
-
+app.use('/martin-robot', routeMartinRobot);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
